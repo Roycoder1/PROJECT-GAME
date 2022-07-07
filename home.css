@@ -1,0 +1,39 @@
+body{
+
+	width: 100%;
+	background-image: url('background.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+
+
+}
+h1{
+	text-align: center;
+	font-size: 2.3em;
+	color: yellowgreen;
+	font-style: italic;
+	text-align: center;
+	margin-top: 29%;
+}
+
+
+
+
+.game{
+
+	width: 140px;
+	height: 80px;
+	border-radius: 20px;
+	background-color: purple;
+	text-align: center;
+	margin-left: 639px;
+
+
+
+
+}
+a{
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
