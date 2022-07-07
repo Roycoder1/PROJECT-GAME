@@ -48,6 +48,7 @@ document.addEventListener('keydown', function(event){
 		console.log(posTopBotom, posLeftRight)
 
 		alert('Whats happening?')
+		document.location.href='log.html'
 		return;
 	}
 
