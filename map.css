@@ -1,0 +1,9 @@
+body{
+	background-color: yellowgreen;
+}
+.character{
+	width: 10px;
+	height: 15px;
+	background-color: blue;
+	border:  1 px solid blue;
+}
