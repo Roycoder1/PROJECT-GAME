@@ -16,7 +16,7 @@ let monster = [
 {
 	name:"Ignit",
 	pv:"100",
-	speed:"20",
+	speed:"30",
 	defense:"20",
 	baseDamage:"25",
 	elemResist:["fire"],
@@ -43,7 +43,7 @@ let monster = [
 },
 
 {
-	name: "earthlite",
+	name: "Earthlite",
 	pv:"100",
 	speed:"10",
 	defense:"40",
@@ -54,6 +54,7 @@ let monster = [
 ]
 
 let baakTik = {
+	name:"Baak-Tik",
 	pv:"200",
 	speed:"50",
 	defense:"25",
@@ -62,58 +63,130 @@ let baakTik = {
 	elemWeak:[""]
 };
 
-let opponent;
-let aiTurn = false;
-let first;
-let second;
+//---------- utility function ----------
+//---------- utility function ----------
 
-function getOpponent(bossSumon){
-	if(bossSumon == "boss"){
-		return baakTik;
+//---------- gen var for getOpponent ----------
+//let bossSumon = sessionStorage.getItem("pos"); // we get the position of the character box from mapgame.html
+//---------- gen var for getOpponent ----------
+
+function getOpponent(){ 
+
+	let random = Math.floor(Math.random() * (3 + 1)); //random num for switch condition down 
+	bossSumon=224;
+	if(bossSumon == 225){ // if pos == 225 then the player enter the fight from one of the doors and not from the boss talk
+
+		switch(random){ //choose a random monster from the monster array
+
+			case 0:
+			return monster[0];
+
+			case 1:
+			return monster[1];
+
+			case 2:
+			return monster[2];
+
+			case 3:
+			return monster[3];
+
+		}
 	}
-	fo
+	return baakTik;
 }
 
-function combatStart(){
-	opponent = getOpponent("boss");
-	console.log(opponent);
+//---------- gen var for chooseTurn ----------
+let aiTurn = false;
+//---------- gen var for chooseTurn ----------
+
+function chooseTurn(){
+
+	if(opponent.speed = hero.speed || opponent.speed > hero.speed){
+		aiTurn = true;
+	}
+}
+
+function playerTurn(){
+
+	let random = (Math.random() * (1.35 - 0.85) + 0.85).toFixed(2);
+
+	let damage = (hero.mastery.fire / opponent.defense) * hero.intelligence * random;
+	damage = Math.floor(damage);
+	console.log(`${hero.name} hit ${damage}`);
+	opponent.pv -= damage;
+}
+
+
+function opponentTurn(){
+
+	let random = (Math.random() * (1.35 - 0.85) + 0.85).toFixed(2)
+
+	let damage = (opponent.baseDamage / hero.defense) * random;
+	damage = Math.floor(damage); 
+	console.log(`${opponent.name} hit ${damage}`);
+	hero.pv -= damage;
+}
+
+function endGame(){
+	if (hero.pv <= 0){
+		console.log("GAME OVER !!!");
+		return;
+
+	}else if(opponent != baakTik){
+		console.log( "Zivar: Well done !!! my apprentice !!")
+		hero.intelligence ++;
+		return;
+	}
+	else{
+		console.log("Zivar: ... You defeated Baak-Tik !!!! You are now officially a rank 2 apprentice, we will soon start your IF's magic training !!!");
+		return;
+	}
+}
+function fight(){
+
+	while(hero.pv > 0 || opponent.pv > 0){
+
+		if(hero.pv < 0 || opponent.pv < 0){
+			break;
+		}
+		console.log(first.name, first.pv, second.name, second.pv);
+		if(first == opponent){
+			opponentTurn();
+			console.log(first.name, first.pv, second.name, second.pv);
+			playerTurn();
+			console.log(first.name, first.pv, second.name, second.pv);
+		}else{
+			playerTurn()
+			console.log(first.name, first.pv, second.name, second.pv);
+			opponentTurn();
+			console.log(first.name, first.pv, second.name, second.pv);
+		}
+	}
+	endGame();
+}
+
+//---------- gen var for combatHandler ----------
+let opponent;
+let first;
+let second;
+//---------- gen var for combatHandler ----------
+
+
+function combatHandler(){
+
+	opponent = getOpponent();
+
 	chooseTurn();
 	if (aiTurn) {
-		alert("Zivar: opponent_name is faster then you be ready to get hit");
+		alert(`Zivar: ${opponent.name} is faster then you be ready to get hit`);
 		first = opponent;
 		second = hero; 
 	}else{
-		alert("Zivar: You took opponent_name by surprise !! quick choose a spell!!");
+		alert(`Zivar: You took ${opponent.name} by surprise !! quick choose a spell!!`);
 		first = hero;
 		second = opponent;
 	}
 	fight();
 }
-
-function fight(){
-	while(hero.pv > 0 || opponent > 0){
-		console.log(first.pv, second.pv)
-		attack(first);
-	}
-}
-
-function chooseTurn(){
-	if(opponent.speed > hero.speed){
-		aiTurn = true;
-	}
-}
-
-function attack (){
-	console.log(hero.name, hero.pv);
-	let random = (Math.random() * (1 - 0.85) + 0.85).toFixed(2)
-	if(first == opponent){
-		let damage = (opponent.baseDamage / hero.defense) * random;
-		damage = Math.floor(damage); 
-		console.log(damage);
-		hero.pv -= damage;
-		console.log(hero.name, hero.pv);
-	}
-}
-
 alert("an enemy appears !!!");
-combatStart();
+combatHandler();
