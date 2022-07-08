@@ -67,14 +67,14 @@ let baakTik = {
 //---------- utility function ----------
 
 //---------- gen var for getOpponent ----------
-//let bossSumon = sessionStorage.getItem("pos"); // we get the position of the character box from mapgame.html
+let bossSumon = sessionStorage.getItem("pos"); // we get the position of the character box from mapgame.html
 //---------- gen var for getOpponent ----------
 
 function getOpponent(){ 
 
 	let random = Math.floor(Math.random() * (3 + 1)); //random num for switch condition down 
-	bossSumon=224;
-	if(bossSumon == 225){ // if pos == 225 then the player enter the fight from one of the doors and not from the boss talk
+	
+	if(bossSumon >= 224){ // if pos == 225 then the player enter the fight from one of the doors and not from the boss talk
 
 		switch(random){ //choose a random monster from the monster array
 

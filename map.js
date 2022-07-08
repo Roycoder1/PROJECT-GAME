@@ -1,14 +1,16 @@
 let inter;
 // let posBottom = 1;
 let character = document.querySelectorAll('div')[1]
-console.log(character)
+// console.log(character)
+
 let posLeftRight = 0;
 // let posLeft = 1;
 let posTopBotom = 0;
 let pos;
+
 let container1 = document.querySelector('.text')
 let perso = document.querySelector('.character img')
-console.log(perso.setAttribute('src','elroyup.png'))
+// console.log(perso.setAttribute('src','elroyLastdown.png'))
 
 let getData = sessionStorage.getItem('pos')
 
@@ -22,13 +24,13 @@ document.addEventListener('keydown', function(event){
 		let pos = 1;
 		character.style.top = posTopBotom  +'px';
 		posTopBotom=posTopBotom+(7*pos);
-		perso.setAttribute('src', 'elroy.png')
+		perso.setAttribute('src', 'elroyLastdown.png')
 	}
 	if(event.keyCode == 87){
 		let pos = -1;
 		character.style.top = posTopBotom  +'px';
 		posTopBotom=posTopBotom+(7*pos);
-		perso.setAttribute('src','elroyup.png')
+		perso.setAttribute('src','elroylastup.png')
 
 	}
 	if (event.keyCode==68) {
@@ -37,13 +39,13 @@ document.addEventListener('keydown', function(event){
 		character.style.left = posLeftRight + 'px';
 		posLeftRight= posLeftRight+7;
 		
-		perso.setAttribute('src','elroy.png')
+		perso.setAttribute('src','elroyLastright.png')
 	}
 	if(event.keyCode==65){
 		let pos = -1;
 		character.style.left = posLeftRight + 'px';
 		posLeftRight= posLeftRight+ (7*pos);
-		perso.setAttribute('src','elroyleft.png')
+		perso.setAttribute('src','elroylastleft.png')
 
 
 	}
@@ -80,24 +82,8 @@ document.addEventListener('keydown', function(event){
 
 		return;
 
-
-
-
-
-		// let container1 = document.querySelector('.text')
-
-		// let textlines =[
-		// {string : "Hey what's up ?", speed : 20},
-		// {string : 'Bactick is just bewind be careful he is angry', speed : 20},
-		// ];
-		// let texts = []
-		// textlines.forEach(line=>{
-		// 	line.string.split('').forEach(texts=>{
-		// 		let span = document.createElement('span');
-		// 		span.textContent = texts;
-		// 		container1.appendChild(span)
 	}
-	if (posLeftRight>= 1071 && posLeftRight<=1072  && posTopBotom >=35  && posTopBotom<=56) {
+	if (posLeftRight>= 1071 && posLeftRight<=1072  && posTopBotom >=14  && posTopBotom<=36) {
 
 
 		
@@ -109,7 +95,15 @@ document.addEventListener('keydown', function(event){
 
 
 	}
-})
+	let collision = setInterval(function(){
+		
+		if(posLeftRight==91 && posLeftRight<=160 && posTopBotom>=0 && posTopBotom<=427){
+			
+			console.log( posLeftRight= 0)
+		}
+
+	})
+},7)
 
 
 
