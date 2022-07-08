@@ -1,7 +1,7 @@
 let hero = {
 	name:"Elroy",
 	intelligence: "10",
-	defence:"10",
+	defense:"10",
 	speed:"30",
 	pv:"100",
 	mana:"100",
@@ -12,46 +12,51 @@ let hero = {
 	earth:["earthBolt"]
 };
 
-let ignit = {
+let monster = [
+{
+	name:"Ignit",
 	pv:"100",
 	speed:"20",
-	defence:"20",
+	defense:"20",
 	baseDamage:"25",
 	elemResist:["fire"],
 	elemWeak:["water"]
-};
-
-let aqualit = {
+},
+{
+	name:"Aqualit",
 	pv:"100",
 	speed:"20",
-	defence:"25",
+	defense:"25",
 	baseDamage:"15",
 	elemResist:["fire"],
 	elemWeak:["water"]
-};
+},
 
-let windit = {
+{
+	name:"Windit",
 	pv:"100",
 	speed:"40",
-	defence:"10",
+	defense:"10",
 	baseDamage:"20",
 	elemResist:["fire"],
 	elemWeak:["water"]
-};
+},
 
-let earthlit = {
+{
+	name: "earthlite",
 	pv:"100",
 	speed:"10",
-	defence:"40",
+	defense:"40",
 	baseDamage:"20",
 	elemResist:["fire"],
 	elemWeak:["water"]
-};
+}
+]
 
 let baakTik = {
 	pv:"200",
 	speed:"50",
-	defence:"25",
+	defense:"25",
 	baseDamage:"130",
 	elemResist:["fire", "water", "wind", "earth"],
 	elemWeak:[""]
@@ -66,6 +71,7 @@ function getOpponent(bossSumon){
 	if(bossSumon == "boss"){
 		return baakTik;
 	}
+	fo
 }
 
 function combatStart(){
@@ -101,11 +107,11 @@ function attack (){
 	console.log(hero.name, hero.pv);
 	let random = (Math.random() * (1 - 0.85) + 0.85).toFixed(2)
 	if(first == opponent){
-		let damage = (opponent.baseDamage / hero.defence) * random;
+		let damage = (opponent.baseDamage / hero.defense) * random;
 		damage = Math.floor(damage); 
 		console.log(damage);
 		hero.pv -= damage;
-		console.log(hero.pv);
+		console.log(hero.name, hero.pv);
 	}
 }
 
