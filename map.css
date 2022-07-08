@@ -1,34 +1,51 @@
 body{
-	background-color: brown;
-	height: 100vh;
-	width: 100vw;
+	background-color:  #00b377;
+	height: 1060px;
+	width: 2120px;
 	position: relative;
+	background-image: url('mapdef4.png');
+	
+	background-repeat: no-repeat;
+	
+
 }
-
-
-
+.text{
+	width: 50px;
+	height: 50px;
+	background-color: white;
+}
 
 
 .character{
 	width: 10px;
 	height: 10px;
-	background-color: cyan;
+	/*background-color: cyan;*/
 	border:  1 px solid blue;
 	position: absolute;
 	left: 0;
 
 
 }
-.library{
-	width: 100px;
-	height: 100px;
-	border: 2px solid blue;
-	background-color: purple;
+
+.character2{
 	position: absolute;
-	left: 400px;
+	top: 175px;
+	left: 982px;
+
 }
-.library : hover{
-	background-color: yellow;
+.backtick{
+	position: absolute;
+	top: 47px;
+	left: 1108px;
+}
+
+
+
+audio{
+	width: 100px;
+	position: absolute;
+	bottom: 353px;
+	right: 693px;
 }
 
 
