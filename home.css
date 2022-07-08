@@ -5,19 +5,53 @@ body{
 	background-size: cover;
 	background-repeat: no-repeat;
 
+	object-fit: cover;
+
 
 }
+
+
+
+
+
+
+
 h1{
+	font-family: 'Kaushan Script', cursive;
 	text-align: center;
-	font-size: 2.3em;
-	color: yellowgreen;
+	font-size: 9em;
+	color: #33ffd6;
 	font-style: italic;
 	text-align: center;
-	margin-top: 29%;
+	position: relative;
+	top: 194px;
+	right: 34px;
+	font-weight: bold;
 }
 
+h2{
+	text-align: center;
+	font-family: 'Great Vibes', cursive;
+	font-size: 3em;
+	position: relative;
+	top: 113px;
+	right: 11px;
+	font-weight: bold;
+	color: yellow;}
+
+	audio{
+		width: 100px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
 
 
+
+
+
+
+/*
 
 .game{
 
@@ -31,9 +65,12 @@ h1{
 
 
 
-}
-a{
+
+}*/
+/*a{
 	color: white;
 	text-align: center;
 	text-decoration: none;
-}
+}*/
+
+
