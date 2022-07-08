@@ -1,0 +1,72 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+#vilainSide{
+	border: solid 1px green;
+	display: flex;
+
+	justify-content: flex-end;
+}
+#vilainSide .bars{
+	display: flex;
+	position: absolute;
+	left: 0px;
+	width: 40%;
+	justify-content: center;
+
+}
+#vilainSide .char{
+	display: flex;
+	height: 50vh;
+	align-items: center;
+	width: 20%;
+	justify-content: center;
+	position: relative;
+	right: 12%;
+}
+
+#heroSide{
+	border: solid 1px green;
+	display: flex;
+}
+#heroSide .char{
+	display: flex;
+	height: 50vh;
+	align-items: center;
+	width: 20%;
+	justify-content: center;
+	position: relative;
+	left: 12%;
+}
+.heroWin{
+	display: flex;
+	position: absolute;
+	right: 0px;
+	height: 50vh;
+	width: 60%;
+	justify-content: center;
+	flex-direction: column;
+}
+div{
+	border: solid 1px black;
+}
+.bars{
+	background-color: red;
+	color: white;
+}
+#barsWin{
+	position: relative;
+	
+}
+#abilityWin{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 500px;
+}
+.bars#mana{
+	background-color: blue;
+}
+.element{
+	width: 100%;
+}

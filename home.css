@@ -4,6 +4,7 @@ body{
 	background-image: url('background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
+
 	object-fit: cover;
 
 
@@ -51,6 +52,7 @@ h2{
 
 
 /*
+
 .game{
 
 	width: 140px;
@@ -63,10 +65,12 @@ h2{
 
 
 
+
 }*/
 /*a{
 	color: white;
 	text-align: center;
 	text-decoration: none;
 }*/
+
 

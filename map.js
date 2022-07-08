@@ -54,6 +54,7 @@ document.addEventListener('keydown', function(event){
 		console.log(posTopBotom, posLeftRight)
 
 		alert('Whats happening?')
+
 		document.location.href='battleWindow/battle.html';
 		sessionStorage.setItem("pos", posTopBotom);
 
@@ -76,6 +77,7 @@ document.addEventListener('keydown', function(event){
 		
 		alert("Hey what's up? If you're looking for backtick he is behind the tree, be careful he is angry");
 		confirm('Are you strong enough to fight him?')
+
 		return;
 
 
