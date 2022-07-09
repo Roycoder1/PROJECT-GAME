@@ -7,10 +7,10 @@ body{
 	background-size: cover;
 }
 #vilainSide{
-/*	border: solid 1px green;*/
-display: flex;
+	:battle.css
+	display: flex;
 
-justify-content: flex-end;
+	justify-content: flex-end;
 }
 #vilainSide .bars{
 	display: flex;
@@ -32,7 +32,6 @@ justify-content: flex-end;
 }
 
 #heroSide{
-	/*border: solid 1px green;*/
 	display: flex;
 }
 #heroSide .char{
@@ -54,9 +53,6 @@ justify-content: flex-end;
 	justify-content: center;
 	flex-direction: column;
 }
-/*div{
-	border: solid 1px black;
-}*/
 .bars{
 	background-color: red;
 	color: white;
@@ -81,6 +77,18 @@ justify-content: flex-end;
 .element{
 	width: 100%;
 	border: solid 1px black;
+}
+.fireSpell{
+	color: orangered;
+}
+.waterSpell{
+	color: royalblue;
+}
+.windSpell{
+	color: lightgreen;
+}
+.earthSpell{
+	color: sandybrown;
 }
 .char{
 	width: 200px;
