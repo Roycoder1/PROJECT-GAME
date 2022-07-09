@@ -1,7 +1,7 @@
 body{
 
 	width: 100%;
-	background-image: url('background.png');
+	background-image: url('images/background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 
@@ -27,7 +27,14 @@ h1{
 	top: 194px;
 	right: 34px;
 	font-weight: bold;
+	text-shadow: -2px 2px 4px black;
 }
+
+
+
+
+
+
 
 h2{
 	text-align: center;

@@ -1,7 +1,7 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	background-image: url('battlebackground.png');
+	background-image: url('images/battlebackground.png');
 	background-repeat: no-repeat;
 	object-fit: cover;
 	background-size: cover;
@@ -84,4 +84,10 @@ justify-content: flex-end;
 }
 .char{
 	width: 200px;
+}
+audio{
+	width: 100px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
