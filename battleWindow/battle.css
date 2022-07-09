@@ -1,12 +1,16 @@
 body{
 	margin: 0px;
 	padding: 0px;
+	background-image: url('images/battlebackground.png');
+	background-repeat: no-repeat;
+	object-fit: cover;
+	background-size: cover;
 }
 #vilainSide{
-	border: solid 1px green;
-	display: flex;
+/*	border: solid 1px green;*/
+display: flex;
 
-	justify-content: flex-end;
+justify-content: flex-end;
 }
 #vilainSide .bars{
 	display: flex;
@@ -23,11 +27,12 @@ body{
 	width: 20%;
 	justify-content: center;
 	position: relative;
-	right: 12%;
+	right: 6%;
+	top: 60px;
 }
 
 #heroSide{
-	border: solid 1px green;
+	/*border: solid 1px green;*/
 	display: flex;
 }
 #heroSide .char{
@@ -37,36 +42,52 @@ body{
 	width: 20%;
 	justify-content: center;
 	position: relative;
-	left: 12%;
+	left: 18%;
 }
 .heroWin{
 	display: flex;
 	position: absolute;
 	right: 0px;
+	top: 484px;
 	height: 50vh;
-	width: 60%;
+	width: 36%;
 	justify-content: center;
 	flex-direction: column;
 }
-div{
+/*div{
 	border: solid 1px black;
-}
+}*/
 .bars{
 	background-color: red;
 	color: white;
+	border: solid 1px black;
 }
 #barsWin{
 	position: relative;
+	border: solid 1px black;
 	
 }
 #abilityWin{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	height: 500px;
+	height: 172px;
+	color: white;
+	border: solid 1px black;
+	text-align: center;
 }
 .bars#mana{
 	background-color: blue;
 }
 .element{
 	width: 100%;
+	border: solid 1px black;
+}
+.char{
+	width: 200px;
+}
+audio{
+	width: 100px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }

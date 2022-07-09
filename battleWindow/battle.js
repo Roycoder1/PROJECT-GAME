@@ -62,6 +62,7 @@ let baakTik = {
 	elemWeak:[""]
 };
 
+
 //---------- utility function ----------  (small functions to make my life easier :P)
 function randomize(min, max){
 
@@ -92,17 +93,19 @@ function checkDead(){
 	}
 	return false;
 }
+
 //---------- utility function ----------
 
 //---------- gen var for getOpponent ----------
-//let bossSumon = sessionStorage.getItem("pos"); // we get the position of the character box from mapgame.html
+let bossSumon = sessionStorage.getItem("pos"); // we get the position of the character box from mapgame.html
 //---------- gen var for getOpponent ----------
 function getOpponent(){ 
 
-	bossSumon = 225;
+	let random = Math.floor(Math.random() * (3 + 1)); //random num for switch condition down 
+	
 	if(bossSumon >= 224){ // if pos == 225 then the player enter the fight from one of the doors and not from the boss talk
 
-		switch(randomize(0, 3)){ //choose a random monster from the monster array
+		switch(random){ //choose a random monster from the monster array
 
 			case 0:
 			return monster[0];
@@ -121,11 +124,20 @@ function getOpponent(){
 	return baakTik;
 }
 
+//---------- gen var for chooseTurn ----------
+let aiTurn = false;
+//---------- gen var for chooseTurn ----------
+
+function chooseTurn(){
+
+	if(opponent.speed = hero.speed || opponent.speed > hero.speed){
+		aiTurn = true;
+	}
+}
+
 function playerTurn(){
 
-	console.log(first.name, first.pv, second.name, second.pv);
-
-	let random = randomize(0.85, 1.35); 
+	let random = (Math.random() * (1.35 - 0.85) + 0.85).toFixed(2);
 
 	let damage = (hero.fireMagic.mastery / opponent.defense) * hero.intelligence * random;
 	damage = Math.floor(damage);
@@ -136,9 +148,7 @@ function playerTurn(){
 
 function opponentTurn(){
 
-	console.log(first.name, first.pv, second.name, second.pv);
-
-	let random = randomize(0.85, 1.35);
+	let random = (Math.random() * (1.35 - 0.85) + 0.85).toFixed(2)
 
 	let damage = (opponent.baseDamage / hero.defense) * random;
 	damage = Math.floor(damage); 
@@ -149,43 +159,42 @@ function opponentTurn(){
 function endGame(){
 
 	if (hero.pv <= 0){
-		alert("GAME OVER !!!");
+		console.log("GAME OVER !!!");
 		return;
 
 	}else if(opponent != baakTik){
+
 		alert("Master Zivar: Well done !!! my apprentice !!")
+
 		hero.intelligence ++;
 		return;
 	}
 	else{
+
 		alert("Master Zivar: ... You defeated Baak-Tik !!!! You are now officially a rank 2 apprentice, we will soon start your IF's magic training !!!");
+
 		return;
 	}
 }
 function fight(){
 
-	while(hero.pv > 0 && opponent.pv > 0){
+	while(hero.pv > 0 || opponent.pv > 0){
 
+		if(hero.pv < 0 || opponent.pv < 0){
+			break;
+		}
+		console.log(first.name, first.pv, second.name, second.pv);
 		if(first == opponent){
 			opponentTurn();
-			if(checkDead()){ // each turn checkDead will check if the last attack killed someone and break out of the loop is it did
-				break;
-			}
+			console.log(first.name, first.pv, second.name, second.pv);
 			playerTurn();
-			if(checkDead()){
-				break;
-			}
-		}
-		else{
-			playerTurn();
-			if(checkDead()){
-				break;
-			}
+			console.log(first.name, first.pv, second.name, second.pv);
+		}else{
+			playerTurn()
+			console.log(first.name, first.pv, second.name, second.pv);
 			opponentTurn();
-			if(checkDead()){
-				break;
-			}
-		}		
+			console.log(first.name, first.pv, second.name, second.pv);
+		}
 	}
 	endGame();
 }
@@ -212,6 +221,8 @@ function combatHandler(){
 	fight();
 }
 alert("an enemy appears !!!");
+
 //let spellList =
+
 
 combatHandler();
