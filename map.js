@@ -24,13 +24,13 @@ document.addEventListener('keydown', function(event){
 		let pos = 1;
 		character.style.top = posTopBotom  +'px';
 		posTopBotom=posTopBotom+(7*pos);
-		perso.setAttribute('src', 'elroyLastdown.png')
+		perso.setAttribute('src', 'images/elroyLastdown.png')
 	}
 	if(event.keyCode == 87){
 		let pos = -1;
 		character.style.top = posTopBotom  +'px';
 		posTopBotom=posTopBotom+(7*pos);
-		perso.setAttribute('src','elroylastup.png')
+		perso.setAttribute('src','images/elroylastup.png')
 
 	}
 	if (event.keyCode==68) {
@@ -39,13 +39,13 @@ document.addEventListener('keydown', function(event){
 		character.style.left = posLeftRight + 'px';
 		posLeftRight= posLeftRight+7;
 		
-		perso.setAttribute('src','elroyLastright.png')
+		perso.setAttribute('src','images/elroyLastright.png')
 	}
 	if(event.keyCode==65){
 		let pos = -1;
 		character.style.left = posLeftRight + 'px';
 		posLeftRight= posLeftRight+ (7*pos);
-		perso.setAttribute('src','elroylastleft.png')
+		perso.setAttribute('src','images/elroylastleft.png')
 
 
 	}
