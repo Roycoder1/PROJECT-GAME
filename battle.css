@@ -27,7 +27,7 @@ body{
 	width: 20%;
 	justify-content: center;
 	position: relative;
-	right: 6%;
+	left: 70%;
 	top: 60px;
 }
 
@@ -53,6 +53,16 @@ body{
 	justify-content: center;
 	flex-direction: column;
 }
+#textQueue{
+	background-color: beige;
+	position: absolute;
+	bottom: -16px;
+	left: 0;
+	right: 0;
+	height: 60px;
+	padding: 14px;
+	font-size: 22px;
+}
 .bars{
 	background-color: red;
 	color: white;
@@ -77,18 +87,24 @@ body{
 .element{
 	width: 100%;
 	border: solid 1px black;
+	background-color: beige;
+	color: blueviolet;
 }
 .fireSpell{
 	color: orangered;
+	cursor: pointer;
 }
 .waterSpell{
 	color: royalblue;
+	cursor: pointer;
 }
 .windSpell{
 	color: lightgreen;
+	cursor: pointer;
 }
 .earthSpell{
 	color: sandybrown;
+	cursor: pointer;
 }
 .char{
 	width: 200px;

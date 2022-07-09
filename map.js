@@ -114,17 +114,6 @@ document.addEventListener('keyup', function(event){
 	clearInterval(inter)
 })
 
-// if (posLeftRight>= 1155 && posLeftRight<=1156  && posTopBotom >=335  && posTopBotom<=336) {
-
-
-// 	console.log(posTopBotom, posLeftRight)
-
-// 	alert('Whats happening?')
-
-
-
-// }
-
 
 
 
