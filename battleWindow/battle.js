@@ -5,11 +5,10 @@ let hero = {
 	speed:"30",
 	pv:"100",
 	mana:"100",
-	mastery:{fire:"5", water:"5", wind:"5", earth:"5"},
-	fire:["fireBolt"],
-	water:["waterBolt"],
-	wind:["windBolt"],
-	earth:["earthBolt"]
+	fireMagic:{spells:[{name:"fireBolt", manaCost:"10"}], mastery:"5"},
+	waterMagic:{spells:[{name:"waterBolt", manaCost:"10"}], mastery:"5"},
+	windMagic:{spells:[{name:"windBolt", manaCost:"10"}], mastery:"5"},
+	earthMagic:{spells:[{name:"earthBolt", manaCost:"10"}], mastery:"5"},
 };
 
 let monster = [
@@ -63,13 +62,43 @@ let baakTik = {
 	elemWeak:[""]
 };
 
-//---------- utility function ----------
+
+//---------- utility function ----------  (small functions to make my life easier :P)
+function randomize(min, max){
+
+	let random;
+
+	if(min == 0){
+		random = Math.floor(Math.random() * (max + 1));
+		return random;
+	}
+	random = (Math.random() * (max - min) + min).toFixed(2)
+	return random;
+}
+
+//---------- gen var for chooseTurn ----------
+let aiTurn = false;
+//---------- gen var for chooseTurn ----------
+function chooseTurn(){
+
+	if(opponent.speed == hero.speed || opponent.speed > hero.speed){
+		aiTurn = true;
+	}
+}
+
+function checkDead(){
+
+	if(opponent.pv <= 0 || hero.pv <= 0){
+		return true;
+	}
+	return false;
+}
+
 //---------- utility function ----------
 
 //---------- gen var for getOpponent ----------
 let bossSumon = sessionStorage.getItem("pos"); // we get the position of the character box from mapgame.html
 //---------- gen var for getOpponent ----------
-
 function getOpponent(){ 
 
 	let random = Math.floor(Math.random() * (3 + 1)); //random num for switch condition down 
@@ -110,7 +139,7 @@ function playerTurn(){
 
 	let random = (Math.random() * (1.35 - 0.85) + 0.85).toFixed(2);
 
-	let damage = (hero.mastery.fire / opponent.defense) * hero.intelligence * random;
+	let damage = (hero.fireMagic.mastery / opponent.defense) * hero.intelligence * random;
 	damage = Math.floor(damage);
 	console.log(`${hero.name} hit ${damage}`);
 	opponent.pv -= damage;
@@ -128,17 +157,22 @@ function opponentTurn(){
 }
 
 function endGame(){
+
 	if (hero.pv <= 0){
 		console.log("GAME OVER !!!");
 		return;
 
 	}else if(opponent != baakTik){
-		console.log( "Zivar: Well done !!! my apprentice !!")
+
+		alert("Master Zivar: Well done !!! my apprentice !!")
+
 		hero.intelligence ++;
 		return;
 	}
 	else{
-		console.log("Zivar: ... You defeated Baak-Tik !!!! You are now officially a rank 2 apprentice, we will soon start your IF's magic training !!!");
+
+		alert("Master Zivar: ... You defeated Baak-Tik !!!! You are now officially a rank 2 apprentice, we will soon start your IF's magic training !!!");
+
 		return;
 	}
 }
@@ -170,23 +204,25 @@ let opponent;
 let first;
 let second;
 //---------- gen var for combatHandler ----------
-
-
 function combatHandler(){
 
 	opponent = getOpponent();
 
 	chooseTurn();
 	if (aiTurn) {
-		alert(`Zivar: ${opponent.name} is faster then you be ready to get hit`);
+		alert(`Master Zivar: ${opponent.name} is faster then you be ready to get hit`);
 		first = opponent;
 		second = hero; 
 	}else{
-		alert(`Zivar: You took ${opponent.name} by surprise !! quick choose a spell!!`);
+		alert(`Master Zivar: You took ${opponent.name} by surprise !! quick choose a spell!!`);
 		first = hero;
 		second = opponent;
 	}
 	fight();
 }
 alert("an enemy appears !!!");
+
+//let spellList =
+
+
 combatHandler();
