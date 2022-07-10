@@ -58,7 +58,7 @@ let baakTik = {
 	pv:"100",
 	speed:"50",
 	defense:"50",
-	baseDamage:"130",
+	baseDamage:"50",
 	elemResist:["fire", "water", "wind", "earth"],
 	elemWeak:[" "]
 };
@@ -282,13 +282,22 @@ function combatHandler(){
 		createMessage(`Master Zivar: You took ${opponent.name} by surprise !! quick choose a spell!!`);
 	}
 }
-combatHandler();
-
+//combatHandler();
+createMessage("je test");
 
 function createMessage(message){
 
-	setTimeout(function(){
-		textBox.innerHTML = message ;
-	}, 3000)
+
+	let messChar = message.split("");
+	let stoper = messChar.length - 1;
+	let charInter;
+	for (let i = 0; i < messChar.length; i++){
+		charInter = setInterval(function(){
+			textBox.innerHTML += messChar[i];
+			if(i == stoper){
+				clearInterval(charInter);
+			}
+		}, 1000);	
+	}
 }
 
